@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Chatbot {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Create a Scanner object to read user input
+        System.out.println("Hello! I am a Java chatbot. How can I assist you today?"); // Display a greeting message
+        
+        while (true) { // Start an infinite loop for continuous conversation
+            String input = scanner.nextLine().toLowerCase(); // Read user input and convert it to lowercase for easier processing
+            String response = getResponse(input); // Call the getResponse method to generate a response based on user input
+            System.out.println(response); // Print the response to the console
+            
+            if (input.equals("exit")) { // Check if the user wants to exit the conversation
+                System.out.println("Goodbye! Have a great day."); // Display a farewell message
+                break; // Exit the loop and end the conversation
+            }
+        }
+        scanner.close(); // Close the Scanner object to release system resources
+    }
+
+    public static String getResponse(String input) {
+        // Simple logic to handle user queries and generate appropriate responses
+        if (input.contains("hello") || input.contains("hi")) {
+            return "Hello! How can I help you?";
+        } else if (input.contains("how are you")) {
+            return "I'm just a bot, but thanks for asking!";
+        } else if (input.contains("java")) {
+            return "Java is a popular programming language.";
+        } else if (input.contains("bye")) {
+            return "Goodbye! Take care.";
+        } else {
+            return "I'm sorry, I didn't understand that. Can you please rephrase?";
+        }
+    }
+}
